@@ -1,0 +1,10 @@
+<h1>This is a flickr clone</h1>
+<h5> Is the user signed in:<%= user_signed_in? %>  </h5>
+<% if current_user %>
+<%= link_to "Sign-out", destroy_user_session_path, method: :delete %>
+
+<% else %>
+<%= link_to "Sign-in", new_user_session_path %> <br>
+<% end %>
+
+<%= link_to "See Pictures", pictures_path %>

@@ -1,0 +1,10 @@
+<h1>All Pictures</h1>
+
+<ul>
+  <% @pictures.each do |picture| %>
+    <li>  <%= picture.title %>  </li>
+    <%= image_tag(picture.image_url, size: '100x100') %>
+    <% end %>
+</ul>
+
+<%= link_to "Add a Picture", new_picture_path %>

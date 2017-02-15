@@ -1,0 +1,7 @@
+<%= form_for @picture do |f| %>
+  <%= f.text_field :title, placeholder: "Enter Title"%>
+  <%= f.text_field :description, placeholder: "Enter Description"%>
+  <%= f.text_field :image_url, placeholder: "Image URL"%>
+  <%= f.text_field :owner_id, type: 'hidden', value: current_user.id %>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FlickrCloneRails</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <h5> Is the user signed in:<%= user_signed_in? %>  </h5>
+    <% if flash[:notice]%>
+      <%= flash[:notice] %>
+    <% end %>
+    <% if flash[:alert]%>
+      <%= flash[:alert] %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
