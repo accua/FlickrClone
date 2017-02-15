@@ -1,2 +1,2 @@
-class TagsController < ActionController::Base
+class TagsController < ApplicationController
   before_filter :authenticate_user!

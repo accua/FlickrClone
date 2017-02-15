@@ -7,4 +7,8 @@
 <%= link_to "Sign-in", new_user_session_path %> <br>
 <% end %>
 
+<% if current_user %>
+  <li><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+<% end %>
+
 <%= link_to "See Pictures", pictures_path %>

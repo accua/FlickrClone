@@ -1,4 +1,4 @@
-class PicturesController < ActionController::Base
+class PicturesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
@@ -43,6 +43,6 @@ class PicturesController < ActionController::Base
 
   private
     def picture_params
-      params.require(:picture).permit(:title, :description, :image_url, :owner_id)
+      params.require(:picture).permit(:title, :description, :image_url, :owner_id, :local_pic)
     end
 end

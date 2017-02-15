@@ -3,5 +3,11 @@
   <%= f.text_field :description, placeholder: "Enter Description"%>
   <%= f.text_field :image_url, placeholder: "Image URL"%>
   <%= f.text_field :owner_id, type: 'hidden', value: current_user.id %>
+
+  <div class="field">
+    <%= f.file_field :local_pic %>
+  </div>
+  <br>
+
   <%= f.submit %>
 <% end %>
