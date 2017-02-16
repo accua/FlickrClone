@@ -4,12 +4,31 @@
 
 <br>
 <% if current_user.id == @picture.owner_id %>
-<%= link_to "Edit", edit_picture_path %>
+<%= link_to "Edit", edit_picture_path(@picture) %>
 <%= link_to "Delete", picture_path(@picture),
                         :data => {:confirm => "Are you sure?",
                         :method => "delete"} %>
 
 <%= link_to "Tag a User", new_picture_tag_path(@picture) %>
+<%= link_to "Comment", new_picture_comment_path(@picture) %>
 <% else %>
-<%= link_to "Tag a User", new_picture_path %>
+<%= link_to "Tag a User", new_picture_tag_path(@picture) %>
+<%= link_to "Comment", new_picture_comment_path(@picture) %>
+<% end %>
+
+<h4 class="center-align">Comments</h4>
+<% @comments.each do |comment| %>
+  <div class="row">
+    <div class="col l12">
+      <div class="card-panel white">
+        <span><strong><%= comment.user.email %></strong> - <%= comment.content %>
+        </span>
+        <span><%= link_to "Edit", edit_picture_comment_path(@picture, comment) %>
+        <%= link_to "Delete", picture_comment_path(@picture, comment),
+                                :data => {:confirm => "Are you sure?",
+                                :method => "delete"} %>
+</span>
+      </div>
+    </div>
+  </div>
 <% end %>

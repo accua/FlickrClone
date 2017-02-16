@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   has_many :tags
   has_many :pictures, :through => :tags
+  has_many :comments
+  has_many :pictures, through: :comments
 end

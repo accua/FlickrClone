@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, path: 'profile', only: [:show]
   resources :pictures do
     resources :tags, only: [:new, :create]
+    resources :comments, except: [:index]
   end
   resources :tags, only: [:index]
   devise_for :users

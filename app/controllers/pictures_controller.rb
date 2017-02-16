@@ -2,6 +2,7 @@ class PicturesController < ApplicationController
   before_filter :authenticate_user!
 
   def show
+    @comments = Comment.where(picture_id: params[:id]).order('created_at DESC')
     @picture = Picture.find(params[:id])
   end
 

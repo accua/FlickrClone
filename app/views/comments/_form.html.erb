@@ -1,0 +1,7 @@
+<%= image_tag @picture.local_pic.url(:full) %>
+<%= form_for [@picture, @comment] do |f| %>
+  <%= f.text_field :content, placeholder: "Enter Comment"%>
+  <%= f.text_field :user_id, type: 'hidden', value: current_user.id %>
+  <br>
+  <%= f.submit %>
+<% end %>
