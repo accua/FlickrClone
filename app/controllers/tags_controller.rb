@@ -24,13 +24,18 @@ class TagsController < ApplicationController
   end
 
   def create
-
+    # if tag_params[:user_id] == nil
+    #   puts "!!!!!!!!!!!!!!!!!!!!!!!", tag_params[:user_id]
+    #   tag_params.key(:user_id)
+    #   tag_params[:user_id] = 1
+    # end
+    @users = User.all
     @picture = Picture.find(params[:picture_id])
     @tag = @picture.tags.new(tag_params)
     if @picture.save
-      redirect_to user_path(current_user)
+      redirect_to picture_path(@picture)
     else
-
+      flash[:alert] = "Tag was not added, Please try again"
       render :new
     end
   end

@@ -23,7 +23,14 @@
         </ul>
       </div>
     </nav>
+
     <div class="container">
+      <% if flash[:notice]%>
+        <%= flash[:notice] %>
+      <% end %>
+      <% if flash[:alert]%>
+        <%= flash[:alert] %>
+      <% end %>
       <%= yield %>
     </div>
   </body>

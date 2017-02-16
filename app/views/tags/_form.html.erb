@@ -1,5 +1,15 @@
+<%= image_tag @picture.local_pic.url(:full) %>
+<h4>Add a Tag To This Picture</h4>
 <%= form_for [@picture, @tag] do |f| %>
   <%= f.text_field :title, placeholder: "Enter Title"%>
+  <%= f.text_field :user_id, type: 'hidden', value: 1 %>
+
+  <%= f.submit %>
+<% end %>
+
+<h4>Tag a User</h4>
+<%= form_for [@picture, @tag] do |f| %>
+
   <%= f.text_field :user_id, placeholder: "Enter User_Id"%>
 
   <%= f.submit %>
