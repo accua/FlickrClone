@@ -1,0 +1,11 @@
+<%= form_for [@picture, @tag] do |f| %>
+  <%= f.text_field :title, placeholder: "Enter Title"%>
+  <br>
+  <% %>
+  
+  <%= f.submit %>
+<% end %>
+
+<% @users.each do |user| %>
+  <%= user.email %> <br>
+<% end %>

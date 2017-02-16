@@ -4,7 +4,7 @@ class PicturesController < ApplicationController
   def show
     @picture = Picture.find(params[:id])
   end
-  
+
   def index
     @pictures = Picture.all
   end
@@ -42,7 +42,7 @@ class PicturesController < ApplicationController
     @user = User.find(current_user.id)
     @picture = Picture.find(params[:id])
     @picture.destroy
-    redirect_to user_path(@user)
+    redirect_to :back
   end
 
   private

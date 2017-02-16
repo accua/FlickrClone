@@ -11,12 +11,14 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">FlickrClone</a>
+        <a href="/" class="brand-logo">FlickrClone</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/">Home</a></li>
           <% if current_user %>
           <li>  <%= link_to 'Profile', user_path(current_user.id) %>  </li>
           <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+          <li><%= link_to 'Login', new_user_session_path %></li>
           <% end %>
         </ul>
       </div>
