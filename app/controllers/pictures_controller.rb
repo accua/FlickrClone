@@ -1,6 +1,10 @@
 class PicturesController < ApplicationController
   before_filter :authenticate_user!
 
+  def show
+    @picture = Picture.find(params[:id])
+  end
+  
   def index
     @pictures = Picture.all
   end

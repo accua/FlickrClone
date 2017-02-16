@@ -1,0 +1,12 @@
+<h1> <%= @picture.title %> </h1>
+
+<%= image_tag(@picture.local_pic.url(:full)) %>
+
+<br>
+<% if current_user.id == @picture.owner_id %>
+<%= link_to "Edit", edit_picture_path %>
+<%= link_to "Delete", new_picture_path %>
+<%= link_to "Tag a User", new_picture_path %>
+<% else %>
+<%= link_to "Tag a User", new_picture_path %>
+<% end %>

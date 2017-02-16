@@ -2,10 +2,12 @@
 
 <ul>
   <% @pictures.each do |picture| %>
+  <%= link_to(picture_path(picture)) do %>
     <li>  <%= picture.title %>  </li>
-    
+
     <%= image_tag(picture.local_pic.url(:full)) %>
     <% end %>
+  <% end %>
 </ul>
 
 <%= link_to "Add a Picture", new_picture_path %>
