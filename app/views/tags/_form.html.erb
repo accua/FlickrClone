@@ -1,11 +1,12 @@
 <%= form_for [@picture, @tag] do |f| %>
   <%= f.text_field :title, placeholder: "Enter Title"%>
-  <br>
-  <% %>
-  
+  <%= f.text_field :user_id, placeholder: "Enter User_Id"%>
+
   <%= f.submit %>
 <% end %>
 
-<% @users.each do |user| %>
-  <%= user.email %> <br>
-<% end %>
+ <ul>
+   <% @users.each do |user| %>
+     <li> email:<%= user.email  %> |  id:<%= user.id  %></li>
+   <% end %>
+ </ul>
