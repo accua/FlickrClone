@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def show
     @comments = Comment.where(picture_id: params[:id]).order('created_at DESC')

@@ -1,6 +1,6 @@
 class Picture < ApplicationRecord
   has_many :tags
-  has_many :users, :through => :tags
+  has_many :users, through: :tags
   has_many :comments
   has_many :users, through: :comments
 

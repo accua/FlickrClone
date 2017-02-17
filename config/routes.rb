@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   resources :users, path: 'profile', only: [:show]
   resources :pictures do
     resources :tags, only: [:new, :create]
-    resources :comments, except: [:index]
+    resources :comments, except: [:index] do
+      member do
+        put "like", to: "comments#upvote"
+        put "dislike", to: "comments#downvote"
+      end
+    end
   end
   resources :tags, only: [:index]
   devise_for :users

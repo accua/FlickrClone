@@ -4,16 +4,16 @@
 
 <br>
 <% if current_user.id == @picture.owner_id %>
-<%= link_to "Edit", edit_picture_path(@picture) %>
-<%= link_to "Delete", picture_path(@picture),
+<%= link_to "Edit", edit_picture_path(@picture), class: 'btn' %>
+<%= link_to "Delete", picture_path(@picture),class: 'btn',
                         :data => {:confirm => "Are you sure?",
                         :method => "delete"} %>
 
-<%= link_to "Tag a User", new_picture_tag_path(@picture) %>
-<%= link_to "Comment", new_picture_comment_path(@picture) %>
+<%= link_to "Tag a User", new_picture_tag_path(@picture), class: 'btn' %>
+<%= link_to "Comment", new_picture_comment_path(@picture), class: 'btn' %>
 <% else %>
-<%= link_to "Tag a User", new_picture_tag_path(@picture) %>
-<%= link_to "Comment", new_picture_comment_path(@picture) %>
+<%= link_to "Tag a User", new_picture_tag_path(@picture), class: 'btn' %>
+<%= link_to "Comment", new_picture_comment_path(@picture), class: 'btn' %>
 <% end %>
 
 <h4 class="center-align">Comments</h4>
@@ -28,6 +28,15 @@
                                 :data => {:confirm => "Are you sure?",
                                 :method => "delete"} %>
 </span>
+<%= link_to like_picture_comment_path(@picture, comment), method: :put do %>
+        Upvote
+        <%= comment.get_upvotes.size %>
+      <% end %>
+      <br>
+      <%= link_to dislike_picture_comment_path(@picture, comment), method: :put do %>
+        Downvote
+        <%= comment.get_downvotes.size %>
+      <% end %>
       </div>
     </div>
   </div>

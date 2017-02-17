@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @tags = Tag.where(user_id: current_user.id)
@@ -24,11 +24,6 @@ class TagsController < ApplicationController
   end
 
   def create
-    # if tag_params[:user_id] == nil
-    #   puts "!!!!!!!!!!!!!!!!!!!!!!!", tag_params[:user_id]
-    #   tag_params.key(:user_id)
-    #   tag_params[:user_id] = 1
-    # end
     @users = User.all
     @picture = Picture.find(params[:picture_id])
     @tag = @picture.tags.new(tag_params)
